@@ -1,0 +1,88 @@
+#
+# Generated Makefile - do not edit!
+#
+# Edit the Makefile in the project folder instead (../Makefile). Each target
+# has a -pre and a -post target defined where you can add customized code.
+#
+# This makefile implements configuration specific macros and targets.
+
+
+# Environment
+MKDIR=mkdir
+CP=cp
+GREP=grep
+NM=nm
+CCADMIN=CCadmin
+RANLIB=ranlib
+CC=gcc
+CCC=g++
+CXX=g++
+FC=gfortran
+AS=as
+
+# Macros
+CND_PLATFORM=Cygwin_4.x-Windows
+CND_DLIB_EXT=dll
+CND_CONF=Debug
+CND_DISTDIR=dist
+CND_BUILDDIR=build
+
+# Include project Makefile
+include Makefile
+
+# Object Directory
+OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
+
+# Object Files
+OBJECTFILES= \
+	${OBJECTDIR}/TesteSubstancia.o
+
+
+# C Compiler Flags
+CFLAGS=
+
+# CC Compiler Flags
+CCFLAGS=-std=c++11
+CXXFLAGS=-std=c++11
+
+# Fortran Compiler Flags
+FFLAGS=
+
+# Assembler Flags
+ASFLAGS=
+
+# Link Libraries and Options
+LDLIBSOPTIONS=-L../../Equilibrium/dist/Debug/Cygwin_4.x-Windows -lEquilibrium
+
+# Build Targets
+.build-conf: ${BUILD_SUBPROJECTS}
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/testesubstancia.exe
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/testesubstancia.exe: ../../Equilibrium/dist/Debug/Cygwin_4.x-Windows/libEquilibrium.dll
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/testesubstancia.exe: ${OBJECTFILES}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/testesubstancia ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/TesteSubstancia.o: nbproject/Makefile-${CND_CONF}.mk TesteSubstancia.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../Equilibrium/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TesteSubstancia.o TesteSubstancia.cpp
+
+# Subprojects
+.build-subprojects:
+	cd ../../Equilibrium && ${MAKE}  -f Makefile CONF=Debug
+
+# Clean Targets
+.clean-conf: ${CLEAN_SUBPROJECTS}
+	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/testesubstancia.exe
+
+# Subprojects
+.clean-subprojects:
+	cd ../../Equilibrium && ${MAKE}  -f Makefile CONF=Debug clean
+
+# Enable dependency checking
+.dep.inc: .depcheck-impl
+
+include .dep.inc
